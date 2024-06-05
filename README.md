@@ -54,6 +54,7 @@ import os
 FILENAME = 'job_applications.csv'
 
 ## Functions 
+`load_applications`
 def load_applications(filename):
     """Load job applications from a CSV file."""
     if not os.path.exists(filename):
@@ -63,9 +64,50 @@ def load_applications(filename):
         reader = csv.DictReader(file)
         return list(reader)
 
+![image](https://github.com/Jashanpreet1234/Job_search/assets/105735825/4fd0cfb2-408e-4925-8b69-2ea36ab388a1)
+
+
 Purpose: Load job applications from a CSV file into a list of dictionaries.
 Logic:
   Checks if the file exists.
   Opens the file in read mode and uses csv.DictReader to read the data.
   Returns a list of dictionaries representing the job applications, or an empty list if the file 
   does not exist.
+
+`save_applications`
+def save_applications(filename, applications):
+    """Save job applications to a CSV file."""
+    with open(filename, 'w', newline='', encoding='utf-8') as file:
+        fieldnames = ['Company', 'Job Title', 'Application Date', 'Status', 'Follow-Up']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(applications)
+
+![image](https://github.com/Jashanpreet1234/Job_search/assets/105735825/1b4e65df-fb8c-4478-8c0f-cfd90e9c84d1)
+
+Purpose: Save the current list of job applications to a CSV file.
+Logic:
+    Opens the file in write mode.
+    Uses csv.DictWriter to write the application data to the file.
+    Writes the header and then writes each application as a row in the CSV file.
+
+    
+`add_application`
+def add_application(applications):
+    """Add a new job application."""
+    company = input("Enter the company name: ")
+    job_title = input("Enter the job title: ")
+    application_date = input("Enter the application date (YYYY-MM-DD): ")
+    status = input("Enter the application status: ")
+    follow_up = input("Enter any follow-up actions: ")
+
+    application = {
+        'Company': company,
+        'Job Title': job_title,
+        'Application Date': application_date,
+        'Status': status,
+        'Follow-Up': follow_up
+    }
+
+    applications.append(application)
+    print("Job application added successfully!")
