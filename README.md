@@ -186,7 +186,7 @@ def delete_application(applications):
 
 ![image](https://github.com/Jashanpreet1234/Job_search/assets/105735825/27f111bc-a013-4f27-97de-e1534e00833b)
 
-##Main Function
+## Main Function
 
 def main():
     """Main function to run the job search management tool."""
@@ -229,3 +229,6 @@ Logic:
     Prints an error message for invalid choices.
     
 Purpose: Ensures the main function runs only if the script is executed directly, not if it is imported as a module in another script
+
+## Output 
+![image](https://github.com/Jashanpreet1234/Job_search/assets/105735825/b5adc8a4-d07f-4d8b-867e-ee5ed20ccbf9)
